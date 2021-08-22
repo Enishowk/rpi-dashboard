@@ -1,0 +1,28 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  width: 120px;
+}
+
+.title {
+  padding-right: 50px;
+}
+
+.link {
+  text-decoration: none;
+  color: white;
+}
+
+::ng-deep .success-snackbar {
+  background: #2e7d32;
+  color: white;
+}
+
+::ng-deep .error-snackbar {
+  background: #b71c1c;
+  color: white;
+}

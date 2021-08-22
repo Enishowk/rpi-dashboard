@@ -1,0 +1,71 @@
+<div class="login-container">
+  <form
+    [formGroup]="loginForm"
+    (ngSubmit)="onSubmit()"
+    *ngIf="!authService.isLoggedIn"
+  >
+    <mat-card class="example-card">
+      <mat-card-header>
+        <img
+          mat-card-avatar
+          src="https://img2.freepng.fr/20180328/bfe/kisspng-raspberry-pi-3-kodi-computer-software-lxde-raspberry-5abba0a2d01102.8440814015222457948523.jpg"
+        />
+        <mat-card-title>Login</mat-card-title>
+        <mat-card-subtitle>Status : {{ status }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-form-field class="example-full-width" [style.fontSize.px]="18">
+          <input
+            matInput
+            placeholder="login"
+            formControlName="login"
+            required
+          />
+        </mat-form-field>
+
+        <br />
+
+        <mat-form-field [style.fontSize.px]="18">
+          <mat-label>Enter your password</mat-label>
+          <input
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            required
+            formControlName="password"
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            type="button"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <br />
+      </mat-card-content>
+      <mat-card-actions>
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="!loginForm.valid"
+          *ngIf="!authService.isLoggedIn"
+          [style.fontSize.px]="18"
+        >
+          Submit
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>
+
+<button
+  mat-raised-button
+  color="primary"
+  (click)="logout()"
+  *ngIf="authService.isLoggedIn"
+>
+  Logout
+</button>
