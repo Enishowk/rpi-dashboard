@@ -8,6 +8,5 @@
     "moduleResolution": "node",
     "outDir": "build",
     "lib": ["es2018"]
-  },
-  "include": ["src/**/*"]
+  }
 }
