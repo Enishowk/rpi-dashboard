@@ -6,6 +6,7 @@ import helmet from "helmet";
 import { Server } from "http";
 
 // declare all routers
+import dashboardRouter from "./routes/dashboardRouter";
 import defaultRouter from "./routes/defaultRouter";
 
 const DEFAULT_PORT = 3000;
@@ -18,6 +19,7 @@ app.use(express.json());
 
 // init your routes
 app.use("/", defaultRouter);
+app.use("/dashboard", dashboardRouter);
 
 // NOT FOUND
 app.use((_req: Request, res: Response) => {
