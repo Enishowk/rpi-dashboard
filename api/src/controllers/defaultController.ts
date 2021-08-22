@@ -6,14 +6,14 @@ export const index = (_req: Request, res: Response) => {
 };
 
 export const login = async (req: Request, res: Response) => {
-  const { email, password } = req.body;
+  const { login, password } = req.body;
 
-  if (!email || !password) {
+  if (!login || !password) {
     return res.status(400).json({ error: "Missing parameters." });
   }
 
   try {
-    return res.json({ token: generateTokenForUser(email) });
+    return res.json({ token: generateTokenForUser(login) });
   } catch (error) {
     return res.status(400).json({ error: "Invalid credentials" });
   }
